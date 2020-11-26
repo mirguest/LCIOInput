@@ -10,20 +10,10 @@ An algorithm wrapper of k4LCIOReader that can cooperate with k4FWCore.
 
 ## Build
 
-Now this package can be built as a sub-module of k4FWCore.
-
-1. check out k4FWCore
+Before build k4LCIOInput, make sure both k4LCIOReader and k4FWCore are installed.
 
 ```shell
-git clone https://github.com/key4hep/k4FWCore
-```
-
-2. check out LCIOInput and build it together with k4FWCore
-
-```shell
-cd k4FWCore
-source init.sh
-git clone https://github.com/ihep-sft-group/LCIOInput
+git clone https://github.com/key4hep/k4LCIOInput
 mkdir build; cd build
 cmake ..
 make
