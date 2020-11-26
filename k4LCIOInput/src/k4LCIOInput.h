@@ -1,8 +1,8 @@
-#ifndef K4_LCIO_INPUT_H
-#define K4_LCIO_INPUT_H
+#ifndef k4_LCIO_INPUT_H
+#define k4_LCIO_INPUT_H
 
-#include "K4LCIOReader/K4LCIOReader.h"
-#include "FWCore/DataHandle.h"
+#include "k4LCIOReader/k4LCIOReader.h"
+#include "k4FWCore/DataHandle.h"
 #include "GaudiAlg/GaudiAlgorithm.h"
 
 #include <string>
@@ -11,11 +11,11 @@
 
 class IIncidentSvc;
 
-class LCIOInput : public GaudiAlgorithm {
+class k4LCIOInput : public GaudiAlgorithm {
 
   public:
 
-    LCIOInput(const std::string& name, ISvcLocator* svcLoc);
+    k4LCIOInput(const std::string& name, ISvcLocator* svcLoc);
 
     virtual StatusCode initialize();
     virtual StatusCode execute();
@@ -41,14 +41,14 @@ class LCIOInput : public GaudiAlgorithm {
     std::map<std::string, DataObjectHandleBase*> m_dataHandles;
 
     //LCIO file handler
-    K4LCIOReader m_lcioReader;
+    k4LCIOReader m_lcioReader;
 
     // Pointer to the incident service.
     SmartIF<IIncidentSvc> m_incidentSvc;
 };
 
 template<typename T>
-bool LCIOInput::registCollection(const std::string& col)
+bool k4LCIOInput::registCollection(const std::string& col)
 {
     auto handle = dynamic_cast<DataHandle<T>*>( m_dataHandles[col] );
 

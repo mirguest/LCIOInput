@@ -1,15 +1,13 @@
-gaudi_subdir(LCIOInput v0r1)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0.0)
 
+find_package(ROOT COMPONENTS RIO Tree)
+
+find_package(GaudiProject)
+set(CMAKE_CXX_STANDARD 17 CACHE STRING "")
+
+gaudi_project(k4LCIOInput v0r1
+              USE Gaudi v33r1
+              USE k4FWCore v0r1)
 find_package(EDM4HEP REQUIRED)
-find_package(K4LCIOReader REQUIRED)
+find_package(k4LCIOReader REQUIRED)
 
-set(LCIOInput_srcs
-    src/LCIOInput.cc
-    )
-
-gaudi_add_module(LCIOInput ${LCIOInput_srcs}
-    INCLUDE_DIRS FWCore ${EDM4HEP_INCLUDE_DIR} ${K4LCIOReader_INCLUDE_DIR}
-    LINK_LIBRARIES GaudiKernel GaudiAlgLib FWCore K4LCIOReader::K4LCIOReader
-    )
-
-#gaudi_add_test()

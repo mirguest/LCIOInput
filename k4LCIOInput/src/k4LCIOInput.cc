@@ -1,5 +1,5 @@
-#include "LCIOInput.h"
-#include "FWCore/DataWrapper.h"
+#include "k4LCIOInput.h"
+#include "k4FWCore/DataWrapper.h"
 
 #include "edm4hep/MCParticleCollection.h"
 #include "edm4hep/SimTrackerHitCollection.h"
@@ -18,9 +18,9 @@
 
 #include "GaudiKernel/IEventProcessor.h"
 
-DECLARE_COMPONENT(LCIOInput)
+DECLARE_COMPONENT(k4LCIOInput)
 
-LCIOInput::LCIOInput(const std::string& name, ISvcLocator* svcLoc)
+k4LCIOInput::k4LCIOInput(const std::string& name, ISvcLocator* svcLoc)
     : GaudiAlgorithm(name, svcLoc),
       m_nEvents(0)
 {
@@ -28,7 +28,7 @@ LCIOInput::LCIOInput(const std::string& name, ISvcLocator* svcLoc)
     declareProperty("input", m_file = "", "Names of the file to read");
 }
 
-StatusCode LCIOInput::initialize()
+StatusCode k4LCIOInput::initialize()
 {
     if (GaudiAlgorithm::initialize().isFailure()) return StatusCode::FAILURE;
 
@@ -117,7 +117,7 @@ StatusCode LCIOInput::initialize()
     return StatusCode::SUCCESS;
 }
 
-StatusCode LCIOInput::execute()
+StatusCode k4LCIOInput::execute()
 {
     m_lcioReader.readNextEvent();
 
@@ -182,7 +182,7 @@ StatusCode LCIOInput::execute()
     return StatusCode::SUCCESS;
 }
 
-StatusCode LCIOInput::finalize()
+StatusCode k4LCIOInput::finalize()
 {
   info() << "totally read " << m_nEvents << " events" << endmsg;
 
