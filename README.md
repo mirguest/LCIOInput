@@ -1,4 +1,4 @@
-# LCIOInput
+# k4LCIOInput
 
 An algorithm wrapper of k4LCIOReader that can cooperate with k4FWCore.
 
